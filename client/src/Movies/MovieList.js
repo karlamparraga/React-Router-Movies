@@ -22,7 +22,9 @@ const MovieList = props => {
   return (
     <div className="movie-list">
       {movies.map(movie => (
-        <MovieDetails key={movie.id} movie={movie} />
+       
+          <MovieDetails key={movie.id} movie={movie} />
+        
       ))}
     </div>
   );
@@ -31,42 +33,24 @@ const MovieList = props => {
 function MovieDetails({ movie }) {
   const { id, title, director, metascore, stars } = movie;
   return (
-    <Link to={`/movies/${id}`}> 
-      {
-            <div className="movie-card">
-            <h2>{title}</h2>
-            <div className="movie-director">
-              Director: <em>{director}</em>
-            </div>
-            <div className="movie-metascore">
-              Metascore: <strong>{metascore}</strong>
-            </div>
-            <h3>Actors</h3>
-      
-            {stars.map(star => (
-              <div key={star} className="movie-star">
-                {star}
-              </div>
-            ))}
-          </div>
-      }
-    </Link>
-    // <div className="movie-card">
-    //   <h2>{title}</h2>
-    //   <div className="movie-director">
-    //     Director: <em>{director}</em>
-    //   </div>
-    //   <div className="movie-metascore">
-    //     Metascore: <strong>{metascore}</strong>
-    //   </div>
-    //   <h3>Actors</h3>
+    <Link to={`/movies/${movie.id}`}> 
+    <div className="movie-card">
+      <h2>{title}</h2>
+      <div className="movie-director">
+        Director: <em>{director}</em>
+      </div>
+      <div className="movie-metascore">
+        Metascore: <strong>{metascore}</strong>
+      </div>
+      <h3>Actors</h3>
 
-    //   {stars.map(star => (
-    //     <div key={star} className="movie-star">
-    //       {star}
-    //     </div>
-    //   ))}
-    // </div>
+      {stars.map(star => (
+        <div key={star} className="movie-star">
+          {star}
+        </div>
+      ))}
+    </div>
+    </Link>
   );
 }
 
